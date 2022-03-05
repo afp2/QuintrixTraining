@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyPhotoApp</string>
+    <string name="quot_string_desc_quot">\"@string/desc\"</string>
+</resources>
