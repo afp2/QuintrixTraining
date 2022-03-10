@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Home</string>
+    <string name="list">List</string>
+    <string name="chart">Chart</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="hello_list">Hello List</string>
+    <string name="hello_char">Hello Char</string>
+</resources>
