@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/saveButton_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_data"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/button_layout"
+        android:onClick="savePublicly"
+        android:padding="8dp"
+        android:text="@string/save_button_public"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/saveButton_private"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editText_data"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/saveButton_public"
+        android:background="@drawable/button_layout"
+        android:onClick="savePrivately"
+        android:padding="8dp"
+        android:text="@string/save_button_private"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/viewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saveButton_public"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_layout"
+        android:onClick="viewInformation"
+        android:padding="8dp"
+        android:text="@string/view_button"
+        android:textAllCaps="false" />
+
+    <EditText
+        android:id="@+id/editText_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView_data"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:hint="@string/edit_text_data"
+        android:inputType="textMultiLine" />
+    
+    <TextView
+        android:id="@+id/textView_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/text_view_data"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/savePref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_layout"
+        android:padding="8dp"
+        android:text="@string/save_to_preferences_button_text"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewPref"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txt"
+        android:hint="@string/enter_text_to_save_to_preferences"
+        android:layout_margin="10dp" />
+
+    <Button
+        android:id="@+id/viewPref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/savePref"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_layout"
+        android:padding="8dp"
+        android:text="@string/view_preferences_text_button"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/retrieve_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="145dp"
+        android:background="@drawable/button_layout"
+        android:onClick="retrieve"
+        android:text="@string/retrieve_text"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/retrieve_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="110dp"
+        android:gravity="center"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/delete_public"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/button_layout"
+        android:text="@string/delete_public_text"
+        android:textAllCaps="false"
+        android:onClick="deletePublic"/>
+
+    <Button
+        android:id="@+id/delete_private"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/button_layout"
+        android:text="@string/delete_private_text"
+        android:textAllCaps="false"
+        android:onClick="deletePrivate"/>
+
+</RelativeLayout>
