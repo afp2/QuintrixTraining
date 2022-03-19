@@ -81,8 +81,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         if (! alreadyFetched){
-            //this probably appends to the database everytime the app launches
-            //not sure how to only create database once (need some sort of persistent variable
+            //this probably appends to the database once per launch when fetch is first called
+            //not sure how to only create database once (need some sort of persistent variable)
+            //could probably tie database creation to checking if we have read write permission
+            //b/c once permission is given we will always have it until uninstall
             val db = DBHelper(this, null)
             val folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
             val file = File(folder, "100-contacts.csv")
