@@ -71,6 +71,9 @@ class MainActivity : AppCompatActivity() {
          */
         //not sure why I need this here but not in the ReadWrite app
         //app doesn't work at all w/out it
+        //the app always crashes in the background once when you first install it as it starts this
+        //activity below. Once you accept the permissions from this activity it should never crash
+        //again (from what I have tested)
         if(!Environment.isExternalStorageManager()){
             try {
                 var i = Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION)
