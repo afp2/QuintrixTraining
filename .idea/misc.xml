@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/afp71/AndroidStudioProjects/google-developer-training-android-kotlin-fundamentals-starter-apps-3e09228/GuessTheWord-Starter/app/src/main/res/layout/game_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/afp71/AndroidStudioProjects/google-developer-training-android-kotlin-fundamentals-starter-apps-3e09228/GuessTheWord-Starter/app/src/main/res/layout/main_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/afp71/AndroidStudioProjects/google-developer-training-android-kotlin-fundamentals-starter-apps-3e09228/GuessTheWord-Starter/app/src/main/res/layout/score_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/afp71/AndroidStudioProjects/google-developer-training-android-kotlin-fundamentals-starter-apps-3e09228/GuessTheWord-Starter/app/src/main/res/layout/title_fragment.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
