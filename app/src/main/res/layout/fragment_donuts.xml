@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DonutFragment">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.donutapp.DonutsViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+        <EditText
+            android:id="@+id/donut_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Enter number of donuts eaten today"
+            android:text="@={viewModel.newDonutString}"
+            />
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Save Donuts Eaten"
+            android:onClick="@{()->viewModel.addDonut()}"
+            />
+        <TextView
+            android:id="@+id/last_donut_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.lastDonutString}"
+            />
+        <ImageView
+            android:id="@+id/donut_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homersimpsondonut"/>
+        <TextView
+            android:id="@+id/homer_speech_bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="24dp"
+            android:text="MMMM.... Donuts!"/>
+    </LinearLayout>
+</layout>
