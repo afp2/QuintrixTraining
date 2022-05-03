@@ -1,5 +1,6 @@
 package com.android.example.numberblockingapp
 
+import android.annotation.SuppressLint
 import android.app.role.RoleManager
 import android.content.Intent
 import android.os.Build
@@ -21,9 +22,11 @@ class MainActivity : AppCompatActivity() {
     var blockNumberButton : Button? = null
     var unblockNumberButton : Button? = null
     var showBlockedNumbersButton : Button? = null
+    var db : DBHelper = DBHelper(this, null)
 
     val REQUEST_ID = 1
 
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,21 +44,27 @@ class MainActivity : AppCompatActivity() {
 
         blockNumberButton?.setOnClickListener {
             Toast.makeText(this, "Blocked Number", Toast.LENGTH_LONG).show()
-
-            Toast.makeText(this, "${phoneNumberEditText?.text.toString()}", Toast.LENGTH_LONG).show()
-
+            val phoneNumberToBlock = phoneNumberEditText?.text.toString()
+            Toast.makeText(this, "$phoneNumberToBlock", Toast.LENGTH_LONG).show()
+            db.addPhoneNumber(phoneNumberToBlock)
         }
 
         unblockNumberButton?.setOnClickListener {
             Toast.makeText(this, "Unblocked Number", Toast.LENGTH_LONG).show()
-
-            Toast.makeText(this, "${phoneNumberEditText?.text.toString()}", Toast.LENGTH_LONG).show()
-
+            val phoneNumberToUnblock = phoneNumberEditText?.text.toString()
+            Toast.makeText(this, "$phoneNumberToUnblock", Toast.LENGTH_LONG).show()
+            db.removePhoneNumber(phoneNumberToUnblock)
         }
 
         showBlockedNumbersButton?.setOnClickListener {
             Toast.makeText(this, "Showing blocked numbers", Toast.LENGTH_LONG).show()
-
+            var cursor = db.getAllBlockedNumbers()
+            cursor.moveToFirst()
+            blockedNumbersTextView?.text = ""
+            do {
+                blockedNumbersTextView?.append(cursor.getString(cursor.getColumnIndex(DBHelper.BLOCKED_PHONE_NUMBERS_COL)) + System.getProperty("line.separator"))
+                blockedNumbersTextView?.append(System.getProperty("line.separator"))
+            } while (cursor.moveToNext())
         }
 
 
@@ -74,22 +83,6 @@ class MainActivity : AppCompatActivity() {
             return 0
         }
         return 1
-        /*
-        var roleManager : RoleManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            getSystemService(ROLE_SERVICE) as RoleManager
-        } else {
-            return 1
-        }
-        var i : Intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING)
-            //Intent(this, CallScreeningServiceImpl::class.java)
-        } else {
-            return 1
-        }
-        //maybe use non deprecated version once I figure this out
-        startActivityForResult(intent, REQUEST_ID)
-        return 0
-         */
     }
 
     @Override

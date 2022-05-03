@@ -12,11 +12,11 @@ class CallScreeningServiceImpl : CallScreeningService() {
 
     override fun onScreenCall(call : Call.Details) {
         Toast.makeText(applicationContext, "Call received", Toast.LENGTH_LONG).show()
-        var incomingPhoneNumber : String = call.handle.toString().removePrefix("tel:")
+        val incomingPhoneNumber : String = call.handle.toString().removePrefix("tel:")
         Toast.makeText(applicationContext, incomingPhoneNumber, Toast.LENGTH_LONG).show()
         if(isBlocked(incomingPhoneNumber)){
             Toast.makeText(applicationContext, "$incomingPhoneNumber is blocked", Toast.LENGTH_LONG).show()
-            var response = CallResponse.Builder()
+            val response = CallResponse.Builder()
             response.apply {
                 setRejectCall(true)
                 setDisallowCall(true)
@@ -27,20 +27,21 @@ class CallScreeningServiceImpl : CallScreeningService() {
         }
         else{
             Toast.makeText(applicationContext, "$incomingPhoneNumber is not blocked", Toast.LENGTH_LONG).show()
-            return
+            val response = CallResponse.Builder()
+            response.apply {
+                setRejectCall(false)
+                setDisallowCall(false)
+                setSkipCallLog(false)
+            }
+            respondToCall(call, response.build())
         }
     }
 
 
     fun isBlocked(phoneNumber : String) : Boolean {
-        if (phoneNumber == "6505551212"){
-            return true
-        }
-        else{
-            return false
-        }
-
-
+        val db = DBHelper(applicationContext, null)
+        val cursor = db.getPhoneNumber(phoneNumber)
+        return cursor.count > 0
     }
 
 
