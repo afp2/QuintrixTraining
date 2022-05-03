@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var blockNumberButton : Button? = null
     var unblockNumberButton : Button? = null
     var showBlockedNumbersButton : Button? = null
-    private lateinit var viewModel : PhoneNumberViewModel
+
     val REQUEST_ID = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,29 +37,25 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this, "$errCode", Toast.LENGTH_LONG).show()
 
         //think this works
-        val dao = PhoneNumberDatabase.getInstance(this).phoneNumberDao
-        val viewModelFactory = PhoneNumberViewModelFactory(dao)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(PhoneNumberViewModel::class.java)
+
 
         blockNumberButton?.setOnClickListener {
             Toast.makeText(this, "Blocked Number", Toast.LENGTH_LONG).show()
-            viewModel.newPhoneNumberToBlockOrUnblock = phoneNumberEditText?.text.toString()
+
             Toast.makeText(this, "${phoneNumberEditText?.text.toString()}", Toast.LENGTH_LONG).show()
-            viewModel.addPhoneNumberToBlockList()
+
         }
 
         unblockNumberButton?.setOnClickListener {
             Toast.makeText(this, "Unblocked Number", Toast.LENGTH_LONG).show()
-            viewModel.newPhoneNumberToBlockOrUnblock = phoneNumberEditText?.text.toString()
+
             Toast.makeText(this, "${phoneNumberEditText?.text.toString()}", Toast.LENGTH_LONG).show()
-            viewModel.removePhoneNumberFromBlockList()
+
         }
 
         showBlockedNumbersButton?.setOnClickListener {
             Toast.makeText(this, "Showing blocked numbers", Toast.LENGTH_LONG).show()
-            val blockedNumbers = viewModel.blockedNumbers.value.toString()
-            Toast.makeText(this, blockedNumbers, Toast.LENGTH_LONG).show()
-            blockedNumbersTextView?.text = blockedNumbers
+
         }
 
 

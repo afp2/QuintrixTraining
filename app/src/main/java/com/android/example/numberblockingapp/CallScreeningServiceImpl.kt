@@ -20,6 +20,7 @@ class CallScreeningServiceImpl : CallScreeningService() {
             response.apply {
                 setRejectCall(true)
                 setDisallowCall(true)
+                setSkipCallLog(true)
             }
             respondToCall(call, response.build())
 
@@ -32,15 +33,13 @@ class CallScreeningServiceImpl : CallScreeningService() {
 
 
     fun isBlocked(phoneNumber : String) : Boolean {
-        /*
         if (phoneNumber == "6505551212"){
             return true
         }
-         */
-        var dbInstance = PhoneNumberDatabase.getInstance(applicationContext)
-        var dbResponse = dbInstance.phoneNumberDao.get(phoneNumber)
-        Toast.makeText(applicationContext, "${dbResponse.value}", Toast.LENGTH_LONG).show()
-        return dbResponse.value != null
+        else{
+            return false
+        }
+
 
     }
 
