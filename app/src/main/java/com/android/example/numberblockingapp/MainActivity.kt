@@ -43,21 +43,19 @@ class MainActivity : AppCompatActivity() {
 
 
         blockNumberButton?.setOnClickListener {
-            Toast.makeText(this, "Blocked Number", Toast.LENGTH_LONG).show()
             val phoneNumberToBlock = phoneNumberEditText?.text.toString()
-            Toast.makeText(this, "$phoneNumberToBlock", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Blocked Number $phoneNumberToBlock", Toast.LENGTH_LONG).show()
             db.addPhoneNumber(phoneNumberToBlock)
         }
 
         unblockNumberButton?.setOnClickListener {
-            Toast.makeText(this, "Unblocked Number", Toast.LENGTH_LONG).show()
             val phoneNumberToUnblock = phoneNumberEditText?.text.toString()
-            Toast.makeText(this, "$phoneNumberToUnblock", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Unblocked Number $phoneNumberToUnblock", Toast.LENGTH_LONG).show()
             db.removePhoneNumber(phoneNumberToUnblock)
         }
 
         showBlockedNumbersButton?.setOnClickListener {
-            Toast.makeText(this, "Showing blocked numbers", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Showing blocked numbers", Toast.LENGTH_LONG).show()
             var cursor = db.getAllBlockedNumbers()
             cursor.moveToFirst()
             blockedNumbersTextView?.text = ""
@@ -91,10 +89,10 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_ID){
             if(resultCode == android.app.Activity.RESULT_OK){
-                Toast.makeText(this, "requestCode is ok", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, "requestCode is ok", Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(this, "requestCode is not ok", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, "requestCode is not ok", Toast.LENGTH_LONG).show()
             }
         }
 
